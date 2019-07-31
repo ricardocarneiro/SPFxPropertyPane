@@ -1,6 +1,6 @@
 ## SPFxPropertyPane
 
-This solution shows how to configure the Property Pane for SharePoint Framework soluitons.
+This solution shows how to configure the Property Pane for SharePoint Framework solutions.
 
 ### Building the code
 
