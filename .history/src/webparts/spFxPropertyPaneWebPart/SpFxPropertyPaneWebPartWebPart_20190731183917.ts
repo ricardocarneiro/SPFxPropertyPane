@@ -41,14 +41,6 @@ export default class SpFxPropertyPaneWebPartWebPart extends BaseClientSideWebPar
   protected get dataVersion(): Version {
     return Version.parse('1.0');
   }
-  private validateContinents(textboxValue: string): string {
-    const validContinentOptions: string[] = ['africa', 'antarctica', 'asia', 'australia', 'europe', 'north america', 'south america'];
-    const inputToValidate: string = textboxValue.toLowerCase();
-
-    return (validContinentOptions.indexOf(inputToValidate) === -1)
-      ? 'Invalid continent entry; valid options are "Africa", "Antarctica", "Asia", "Australia", "Europe", "North America", and "South America"'
-      : '';
-  }
 
   protected getPropertyPaneConfiguration(): IPropertyPaneConfiguration {
     return {
@@ -63,14 +55,6 @@ export default class SpFxPropertyPaneWebPartWebPart extends BaseClientSideWebPar
               groupFields: [
                 PropertyPaneTextField('description', {
                   label: strings.DescriptionFieldLabel
-                }),
-                PropertyPaneTextField('myContinent', {
-                  label: 'Continent where I currently reside',
-                  onGetErrorMessage: this.validateContinents.bind(this)
-                }),
-                PropertyPaneSlider('numContinentsVisited', {
-                  label: 'Number of continents I\'ve visited',
-                  min: 1, max: 7, showValue: true,
                 })
               ]
             }
